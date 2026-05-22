@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap Icon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+     <!-- Google Font API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+ <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
+      Book Loft
+    </a> 
+    
+    </div> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center gap-3">
+      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            See More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="aboutus.php">About Us</a></li>
+            <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+          </ul>
+</li>
+      </ul>
+<br>
+      <!-- Toggle Dark Mode Button -->
+       <div class="d-flex">
+        <button class="dark-mode-toggle" id="darkModeToggle" title="Dark Mode Toggle">
+            <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+        </button>
+       </div>
+    </div>
+  </div>
+</nav>
+
+
+<div class="welcome-box">
+    <div class="welcome-content">
+        <div>
+            <h1>Welcome to Book Loft</h1>
+            <p>Manage your library system easily and track your reading progress.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.welcome-box {
+    background: linear-gradient(135deg, #e09dd6, #7a4971);
+    color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 25px;
+    margin: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.welcome-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-box h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.welcome-box p {
+    font-size: 20px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.welcome-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; 
+}
+
+.welcome-box:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+}
+</style>
+
+<div class="container mt-5">
+    <h2 class="mb-4 fw-bold"><i class="bi bi-book-half"></i>  Library System Dashboard</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="dashboard-card book-card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>Total Books</h5>
+                        <div class="card-number">1250</div>
+                    </div>
+                        <i class="bi bi-book dashboard-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="dashboard-card borrow-card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>Categories Books</h5>
+                        <div class="card-number">10</div>
+                    </div>
+                        <i class="bi bi-journal-check dashboard-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="dashboard-card user-card">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5>Active Users</h5>
+                        <div class="card-number">85</div>
+                    </div>
+                        <i class="bi bi-people dashboard-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <div class="recent-table mt-4">
+        <h4 class="mb-3">Recent Borrowed Books</h4>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-success" onclick="addBook()">
+            <i class="bi bi-plus-circle-fill"></i>Add Book
+            </button>
+        </div>
+
+        <table class="table table-dark table-hover"> <thead> 
+            <tr> 
+                <th>#</th> 
+                <th>Book Title</th> 
+                <th>Status</th> 
+                <th>Action</th> </tr> 
+            </thead> 
+            <tbody id="bookTable"> </tbody> </table>
+    </div>
+</br>
+
+<div class="d-flex justify-content-center mt-4">
+    <div class="card chart-card p-4 text-center d-flex flex-column align-items-center" style="width: 300px;">
+        <h5>Reading Statistics</h5>
+        <canvas id="bookChart" width="400" height="400"></canvas>
+    </div>
+</div>
+<script>
+
+function addBook() {
+
+    let title = prompt("Enter Book Title:");
+
+    if (!title) return;
+
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    books.push({
+        id: Date.now(),
+        title: title,
+        status: "Unread"
+    });
+
+    localStorage.setItem("books", JSON.stringify(books));
+
+    loadBooks();
+    updateChartData();
+}
+
+function loadBooks() {
+
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    let table = document.getElementById("bookTable");
+
+    table.innerHTML = "";
+
+    books.forEach((book, index) => {
+
+        table.innerHTML += `
+            <tr>
+                <td>${index + 1}</td>
+
+                <td>${book.title}</td>
+
+                <td>
+                    <select class="form-select form-select-sm bg-dark text-white"
+                            onchange="updateStatus(${book.id}, this.value)">
+                        <option value="Unread" ${book.status === 'Unread' ? 'selected' : ''}>
+                            Unread
+                        </option>
+                        <option value="Reading" ${book.status === 'Reading' ? 'selected' : ''}>
+                            Reading
+                        </option>
+                        <option value="Completed" ${book.status === 'Completed' ? 'selected' : ''}>
+                            Completed
+                        </option>
+                    </select>
+                </td>
+
+                <td>
+    <button class="btn btn-warning btn-sm me-2"
+            onclick="editBook(${book.id})">
+        Edit
+    </button>
+
+    <button class="btn btn-danger btn-sm"
+            onclick="deleteBook(${book.id})">
+        Delete
+    </button>
+</td>
+            </tr>
+        `;
+    });
+}
+
+function updateStatus(id, status) {
+
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    books.forEach(book => {
+        if (book.id === id) {
+            book.status = status;
+        }
+    });
+
+    localStorage.setItem("books", JSON.stringify(books));
+    updateChartData();
+}
+
+function deleteBook(id) {
+
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    books = books.filter(book => book.id !== id);
+
+    localStorage.setItem("books", JSON.stringify(books));
+
+    loadBooks();
+    updateChartData();
+}
+
+window.onload = function () {
+    loadBooks();
+    initChart();
+};
+
+
+let bookChart;
+
+function initChart() {
+    const ctx = document.getElementById('bookChart').getContext('2d');
+
+    updateChartData(); // first render
+}
+
+function updateChartData() {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    let unread = books.filter(b => b.status === "Unread").length;
+    let reading = books.filter(b => b.status === "Reading").length;
+    let completed = books.filter(b => b.status === "Completed").length;
+
+    const data = {
+        labels: ["Unread", "Reading", "Completed"],
+        datasets: [{
+            data: [unread, reading, completed]
+        }]
+    };
+
+    if (bookChart) {
+        bookChart.data = data;
+        bookChart.update();
+    } else {
+        const ctx = document.getElementById('bookChart').getContext('2d');
+
+        bookChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    }
+}
+function editBook(id) {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    let book = books.find(b => b.id === id);
+
+    if (!book) return;
+
+    let newTitle = prompt("Edit Book Title:", book.title);
+
+    if (!newTitle) return;
+
+    book.title = newTitle;
+
+    localStorage.setItem("books", JSON.stringify(books));
+
+    loadBooks();
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Bootstrap JS CDN -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Dark Mode Toggle JS -->
+     <script>
+        //reference element
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const htmlElement = document.documentElement;
+
+        //check current theme
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        //toggle
+        darkModeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        //change icon
+        function updateIcon(theme) {
+            if (theme === 'dark'){
+                darkModeIcon.className = 'bi bi-sun-fill';
+            } else {
+                darkModeIcon.className = 'bi bi-moon-stars-fill';
+            }
+        }
+
+     </script>
+  </body>
+</html>

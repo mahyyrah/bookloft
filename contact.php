@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap Icon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+     <!-- Google Font API -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+ <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="dashboard.php">
+      Book Loft
+    </a> 
+    
+    </div> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center gap-3">
+      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            See More
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="aboutus.php">About Us</a></li>
+            <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+          </ul>
+</li>
+      </ul>
+<br>
+      <!-- Toggle Dark Mode Button -->
+       <div class="d-flex">
+        <button class="dark-mode-toggle" id="darkModeToggle" title="Dark Mode Toggle">
+            <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+        </button>
+       </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+h2{
+    color: white;
+}
+</style>
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card shadow-sm border-0 p-4 contact-card">
+
+                <div class="text-center mb-4">
+
+                    <h2 class="fw-bold">Contact Us</h2>
+
+                    <p class="text-muted">Have questions or feedback? We'd love to hear from you.</p>
+
+                </div>
+
+                <form>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Full Name</label>
+
+                        <input type="text" class="form-control" placeholder="Enter your name">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Email Address</label>
+
+                        <input type="email" class="form-control" placeholder="Enter your email">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Message</label>
+
+                        <textarea class="form-control" rows="5" placeholder="Write your message..."></textarea>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+
+                </form>
+
+                <div class="mt-5 text-center">
+
+                    <h5 class="fw-bold mb-3">Connect With Us</h5>
+
+                    <div class="d-flex justify-content-center gap-4">
+
+                        <a href="https://wa.me/60137354901" target="_blank" class="btn btn-success rounded-pill px-4">
+                        <i class="bi bi-whatsapp"></i>WhatsApp Us</a>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Dark Mode Toggle JS -->
+      <script>
+        //reference element
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const htmlElement = document.documentElement;
+
+        //check current theme
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        //toggle
+        darkModeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        //change icon
+        function updateIcon(theme) {
+            if (theme === 'dark'){
+                darkModeIcon.className = 'bi bi-sun-fill';
+            } else {
+                darkModeIcon.className = 'bi bi-moon-stars-fill';
+            }
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+ 
+
+</body>
+</html>

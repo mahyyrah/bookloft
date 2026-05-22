@@ -1,0 +1,129 @@
+h3 {
+    color: #e7ced8;
+    font-weight: bold;
+}
+h4 {
+    color:#fcabc4
+}
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.merriweather {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.login-card{
+    width: 400px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    background-color: #d188ac;
+}
+
+.logo{
+    width: 60px;
+}
+
+.custom-input{
+    width: 300px;
+    height: 45px;
+    border-radius: 15px;
+}
+
+.login-btn{
+    height: 50px;
+    border-radius: 15px;
+}
+
+.logo-custom {
+    width: 35px;         
+    height: 35px;        
+    margin-right: 12px;  
+    object-fit: contain; 
+}
+
+.dashboard-card{
+    border: none;
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.book-card{
+    background: #edb3cb;
+}
+.dashboard-card h1{
+    font-size: 60px;
+    font-weight: bold;
+}
+.registerForm{
+    width: 50%;
+    margin: auto;
+}
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+.book-card {
+    background: linear-gradient(135deg, #4e73df, #224abe);
+}
+.borrow-card {
+    background: linear-gradient(135deg, #1cc88a, #13855c);
+
+}
+.user-card {
+    background: linear-gradient(135deg, #f6c23e, #dda20a);
+}
+.dashboard-icon {
+    font-size: 40px;
+    opacity: 0.8;
+}
+.card-number {
+    font-size: 32px;
+    font-weight: bold;
+}
+.recent-table {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.chart-card {
+    width: 300px;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #f0b4d2;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.contact-card{
+    background: linear-gradient(
+        135deg,
+        rgba(232, 147, 181, 0.9),
+        rgba(120, 74, 99, 0.95)
+    );
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(12px);
+}
+       
+.contact-card{
+    border-radius: 25px;
+}
+.social-icon{
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+.social-icon:hover{
+    transform: scale(1.1);
+}
