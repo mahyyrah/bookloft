@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out... - Bookloft</title>
+</head>
+<body>
+
+    <p>Please wait, you are being logged out...</p>
+
+    <script>
+        localStorage.removeItem("currentUser");
+
+        alert("You have successfully logged out!");
+
+        window.location.href = "index.html";
+    </script>
+
+</body>
+</html>
